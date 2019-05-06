@@ -1,0 +1,29 @@
+{
+  "name": "text-to-worker",
+  "version": "0.0.1-alpha.1",
+  "description": "Run functions directly in a webworker",
+  "author": "Nishkal <hello@nishkal.in>",
+  "repository": "https://github.com/Nishkalkashyap/text-to-worker",
+  "homepage": "https://github.com/Nishkalkashyap/text-to-worker",
+  "bugs": {
+    "url": "https://github.com/Nishkalkashyap/text-to-worker/issues"
+  },
+  "main": "./lib/index.js",
+  "keywords": [
+    "webworker",
+    "workerize",
+    "worker"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "tsc"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/fs-extra": "^5.0.5",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {},
+  "types": "./lib/index.d.ts"
+}
