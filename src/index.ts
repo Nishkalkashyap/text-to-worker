@@ -15,7 +15,7 @@ interface WorkerSendMessage extends WorkerBaseData {
     args: any;
 }
 
-function workerToFunctions(workerText: string, addScripts?: {
+function textToWorker(workerText: string, addScripts?: {
     preText?: string;
     postText?: string;
     postWorker?: string
