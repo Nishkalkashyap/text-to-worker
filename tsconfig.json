@@ -1,25 +1,23 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "importHelpers": true,
-    "inlineSourceMap": true,
-    "declaration": true,
+    "target": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "strictNullChecks": false,
-    "target": "es5",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "baseUrl": "./",
-    "module": "umd",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "strict": false,
-    "outDir": "./lib"
-  }
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "lib",
+    "declaration": true
+  },
+  // "include": [
+  //   "src/**/*.ts"
+  // ],
+  "exclude": [
+    "src/**/*.spec.ts",
+    "node_modules",
+    "lib",
+    "test"
+  ]
 }

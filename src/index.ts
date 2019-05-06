@@ -15,7 +15,7 @@ interface WorkerSendMessage extends WorkerBaseData {
     args: any;
 }
 
-function textToWorker(workerText: string, addScripts?: {
+export function textToWorker(workerText: string, addScripts?: {
     preText?: string;
     postText?: string;
     postWorker?: string
@@ -39,7 +39,8 @@ function textToWorker(workerText: string, addScripts?: {
                 result = await eval(\`\${functionName}(\${args})\`);
                 resultType = 'success';
             } catch (err) {
-                result = err;
+                console.log(err);
+                result = JSON.stringify(err);
                 resultType = 'error';
             } finally {
                 const data = {
@@ -48,8 +49,14 @@ function textToWorker(workerText: string, addScripts?: {
                     result : result,
                     resultType : resultType
                 };
-                // console.log(data);
-                global.postMessage(data);
+                
+            try {
+                global.postMessage(JSON.parse(JSON.stringify(data)));
+            }catch(err){
+                console.log(err);
+            }
+
+
             }
         }
         `,
@@ -60,7 +67,7 @@ function textToWorker(workerText: string, addScripts?: {
     const calledFunctions: WorkerSendMessage[] = [];
 
     worker.onmessage = (e) => {
-        let message: WorkerReceiveMessage = e.data;
+        let message: WorkerReceiveMessage = (e.data);
         const find = calledFunctions.find((val) => {
             return val.messageId == message.messageId;
         });
@@ -70,7 +77,7 @@ function textToWorker(workerText: string, addScripts?: {
                 find.onResolve(...message.result);
                 return;
             }
-            find.onReject(...message.result);
+            find.onReject(message.result);
         }
     };
 

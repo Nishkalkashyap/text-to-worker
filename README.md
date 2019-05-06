@@ -1,6 +1,8 @@
 # text-to-worker
+> Under development. Has errors!!!!!!
 
 > Moves a module into a Web Worker, automatically reflecting exported functions as asynchronous proxies.
+
 
 ## Install
 
