@@ -1,4 +1,5 @@
 const ctx = self as any;
+// const ctx = ({} || self);
 // const ctx = self;
 
 ctx.onmessage = async (e) => {
@@ -11,7 +12,7 @@ ctx.onmessage = async (e) => {
 
     try {
         const functionHere = eval(`${functionName}`);
-        result = functionHere(args);
+        result = functionHere(...args);
         resultType = 'success';
     } catch (err) {
         console.log(err);

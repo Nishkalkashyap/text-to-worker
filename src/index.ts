@@ -21,7 +21,6 @@ export function textToWorker(workerText: string, addScripts?: {
     postText?: string;
     postWorker?: string
 }) {
-
     addScripts = addScripts || {};
     let newWorkerText = String().concat(
         addScripts.preText || '',
