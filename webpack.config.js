@@ -4,7 +4,8 @@ module.exports = {
     entry: path.resolve('./src/index.ts'),
     output: {
         filename: "index.js",
-        path: path.resolve('./lib')
+        path: path.resolve('./lib'),
+        libraryTarget: 'umd'
     },
     mode: 'production',
     module: {
@@ -12,5 +13,6 @@ module.exports = {
             test: /\.ts$/,
             use: 'ts-loader'
         }]
-    }
+    },
+    target: 'node'
 }
