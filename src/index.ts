@@ -19,7 +19,8 @@ interface WorkerSendMessage extends WorkerBaseData {
 export function textToWorker(workerText: string, addScripts?: {
     preText?: string;
     postText?: string;
-    postWorker?: string
+    postWorker?: string;
+    type?: 'classic' | 'module'
 }) {
     addScripts = addScripts || {};
     let newWorkerText = String().concat(
@@ -32,7 +33,12 @@ export function textToWorker(workerText: string, addScripts?: {
         addScripts.postWorker || ''
     )
 
-    const worker: Worker = new Worker(URL.createObjectURL(new Blob([newWorkerText])));
+    const blob = new Blob([newWorkerText], {
+        type : 'application/javascript'
+    });
+    const worker: Worker = new Worker(URL.createObjectURL(blob), {
+        type: addScripts.type || 'classic'
+    });
     const calledFunctions: WorkerSendMessage[] = [];
 
     worker.onmessage = (e) => {
