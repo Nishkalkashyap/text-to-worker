@@ -1,6 +1,6 @@
 {
   "name": "text-to-worker",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Run functions directly in a webworker",
   "author": "Nishkal <hello@nishkal.in>",
   "repository": "https://github.com/Nishkalkashyap/text-to-worker",

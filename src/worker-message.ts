@@ -12,7 +12,7 @@ ctx.onmessage = async (e) => {
 
     try {
         const functionHere = eval(`${functionName}`);
-        result = functionHere(...args);
+        result = await functionHere(...args);
         resultType = 'success';
     } catch (err) {
         console.log(err);
