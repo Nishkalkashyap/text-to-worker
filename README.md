@@ -13,6 +13,8 @@ npm install --save text-to-worker
 
 **worker.js**:
 ```js
+import { textToWorker } from "text-to-worker";
+
 let worker = textToWorker(`
 	function sum(a, b) {
         return a + b;
